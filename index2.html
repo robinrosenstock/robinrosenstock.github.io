@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<!-- Built on Frappe. https://frappeframework.com/ -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="frappe">
+
+<meta name="name" content="Robin Rosenstock"><meta name="image" content="https://robinrosenstock.com/files/home.svg"><meta property="og:type" content="website"><meta name="title" content="Robin Rosenstock"><meta property="og:title" content="Robin Rosenstock"><meta name="twitter:title" content="Robin Rosenstock"><meta name="twitter:card" content="summary_large_image"><meta property="og:image" content="https://robinrosenstock.com/files/home.svg"><meta name="twitter:image" content="https://robinrosenstock.com/files/home.svg"><meta property="og:url" content="https://robinrosenstock.com"><meta name="url" content="https://robinrosenstock.com"><meta name="language" content="de">
+
+
+<title>Robin Rosenstock</title>
+
+
+<link rel="shortcut icon" type="image/x-icon" href="files/favicon.ico">
+
+
+<style>
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	--background-color: #fff;
+    --font-color: #000;
+    --font-family: 'Roboto Serif', serif;
+    --switch-dark-mode-margin: 4mm;
+    --switch-dark-mode-width: 1.8em;
+    --switch-dark-mode-height: 1em;
+    --switch-dark-mode-ball-size: 0.7em;
+    --switch-dark-mode-puffer: 0.15em;
+    --visitenkarte-color: #fff;
+    --visitenkarte-height: 55mm;
+    --visitenkarte-width: 85mm;
+    --visitenkarte-border-radius: 2mm;
+    --visitenkarte-box-shadow: 0 5mm 15mm 0 rgba(0, 0, 0, 0.6);
+    --visitenkarte-vignette: radial-gradient(circle, transparent 60%, black 700%);
+    --visitenkarte-padding: 4mm;
+    --visitenkarte-background-image: url("/files/groovepaper.png");
+    --visitenkarte-background-size: 70%;
+    --logo: url("/files/logo-color-on-white.png");
+    --logo-size: 10mm;
+    --logo-text-abstand: 2mm;
+    --logo-text-size: calc(var(--logo-size)/2);
+    --logo-text-line-height: 1em;
+    --logo-bez-abstand: 5mm;
+    --bez-contactinfo-abstand: 5mm;
+    --contactinfo-icon-width: 3mm;
+    --contactinfo-icon-text-abstand: 1.25mm;
+    --contactinfo-icon-filter-color: none;
+    --contactinfos-font-size: 0.6em;
+    --qr-code: url("/files/qr-code-white-only.png");
+
+    
+    margin: var(--marginzero);
+    font-family: var(--font-family);
+    color: var(--font-color);
+    background-color: var(--background-color);
+}
+
+
+/* roboto-flex-regular - latin */
+@font-face {
+  font-family: 'Roboto Flex';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('private/files/roboto-flex-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('https://robinrosenstock.com/private/files/roboto-flex-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
+.dark-mode {
+    --background-color: #343434;
+    --font-color: #FFF;
+    --visitenkarte-color: #000;
+    --logo: url("/files/logo-color-on-black.png");
+    --visitenkarte-background-image: url("/files/black-paper.png");
+    --qr-code: url("/files/qr-code-black-only.png");
+    --visitenkarte-background-size: 30%;
+    --visitenkarte-box-shadow: 0 5mm 15mm 0 rgba(0, 0, 0, 0.7);
+    --contactinfo-icon-filter-color: invert(100%) sepia(0%) saturate(0%) hue-rotate(335deg) brightness(104%) contrast(105%);
+}
+
+label {
+    margin: 0;
+}
+
+#switch-dark-mode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: var(--switch-dark-mode-margin);
+  display: flex;
+  align-items: center;
+}
+
+#impressum {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+#switch-dark-mode p{
+  margin: 0;
+  font-size: 1em;
+  font-size: calc( var(--switch-dark-mode-height) * 0.6 );
+}
+
+/*hide the input check box*/
+#switch-dark-mode input { 
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  width: 0 !important;
+  height: 0;
+}
+
+#slider {
+  position: relative;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: var(--switch-dark-mode-width);
+  height: var(--switch-dark-mode-height);
+  border-radius: var(--switch-dark-mode-height);
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+/* this is the slider ball */
+#slider:before {
+  position: absolute;
+  content: "";
+  height: var(--switch-dark-mode-ball-size);
+  width: var(--switch-dark-mode-ball-size);
+  left: var(--switch-dark-mode-puffer);
+  top: calc( (var(--switch-dark-mode-height) - var(--switch-dark-mode-ball-size)) / 2);
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+#switch-dark-mode input:checked + #slider {
+  background-color: #DAA520;
+}
+
+#switch-dark-mode input:focus + #slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+#switch-dark-mode input:checked + #slider:before {
+  transform: translateX(  calc( var(--switch-dark-mode-width) - var(--switch-dark-mode-ball-size) - (2*var(--switch-dark-mode-puffer)) ));
+}
+
+
+
+
+.navbar {
+    display:none;
+}
+
+footer {
+    display:none;
+}
+
+#visitenkarte-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+
+#visitenkarte-umriss {
+  width: var(--visitenkarte-width);
+  height: var(--visitenkarte-height);
+  border-radius: var(--visitenkarte-border-radius);
+  background-color: transparent;
+  perspective: 1000px;
+  image-rendering: crisp-edges;
+  text-rendering: optimizeLegibility;
+}
+
+#visitenkarte-inhalt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  border-radius: var(--visitenkarte-border-radius);
+  transform-style: preserve-3d; 
+  box-shadow: var(--visitenkarte-box-shadow);
+}
+
+#visitenkarte-umriss:hover #visitenkarte-inhalt {
+  transform: rotateY(180deg);
+}
+
+#visitenkarte-front, #visitenkarte-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#visitenkarte-front, #visitenkarte-back {
+  padding: var(--visitenkarte-padding);
+  background-color: var(--visitenkarte-color);
+  border-radius: var(--visitenkarte-border-radius);
+  color: var(--font-color);
+  background-image: var(--visitenkarte-background-image);
+  background-size: var(--visitenkarte-background-size);
+}
+
+#visitenkarte-front:after, #visitenkarte-back:after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: var(--visitenkarte-vignette);
+  border-radius: var(--visitenkarte-border-radius);
+}
+
+#logo{
+    display: flex;
+    align-items: center;
+}
+
+#logo img{
+  content: var(--logo);
+  width: var(--logo-size);
+  margin-right: var(--logo-text-abstand);
+}
+
+#logo p{
+  margin: 0;
+  padding: 0;
+  line-height: var(--logo-text-line-height);
+}
+
+#bez {
+    margin-top: var(--logo-bez-abstand);
+}
+
+#bez p{
+  font-size: larger;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+}
+
+#contactinfos{
+    margin-top: var(--bez-contactinfo-abstand);
+    display: flex;
+    flex-direction: column;
+}
+
+#contactinfos .line{
+    display: flex;
+}
+
+#contactinfos img{
+    width: var(--contactinfo-icon-width);
+    margin-right: var(--contactinfo-icon-text-abstand);
+    filter: var(--contactinfo-icon-filter-color);
+}
+
+#contactinfos p{
+  margin: 0;
+  padding: 0;
+  font-size: var(--contactinfos-font-size);
+  line-height: 5mm;
+}
+
+#foto img{
+    /* wegen position:absolute kann als height: nicht 100% genommen werden, es sind das 4mm padding nicht beachtet */
+    position: absolute;
+    top: 4mm;
+    right: 4mm;
+    height: 47mm;
+}
+
+#visitenkarte-back {
+  transform: rotateY(180deg);
+}
+
+#qr-code {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+#qr-code img{
+    height: 40mm;
+    content: var(--qr-code);
+}
+
+#qr-code p{
+    margin: 0;
+}
+
+
+@media only screen and (min-device-width : 700px) {
+#visitenkarte-umriss {
+  transform: scale(1.1);
+}
+}
+
+@media only screen and (min-device-width : 800px) {
+#visitenkarte-umriss {
+  transform: scale(1.25);
+}
+}
+
+@media only screen and (min-device-width : 900px) {
+#visitenkarte-umriss {
+  transform: scale(1.5);
+}
+}
+
+
+@media only screen and (min-device-width : 1000px) {
+#visitenkarte-umriss {
+  transform: scale(1.75);
+}
+}
+
+@media only screen and (min-device-width : 1100px) {
+#visitenkarte-umriss {
+  transform: scale(2);
+}
+}
+
+</style>
+
+</head>
+
+
+<body frappe-session-status="logged-out" data-path="" class="">
+
+<nav class="navbar navbar-light navbar-expand-lg">
+<div class="container">
+<a class="navbar-brand" href="/"><img src="/files/logo-color-on-white.png" style="max-height: 35px;"/></a>
+<button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+<span>
+<svg class="icon icon-lg">
+<use href="#icon-menu"></use>
+</svg>
+</span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="mr-auto navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/contact">
+		Kontakt
+	</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/blog">
+		Blog
+	</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/all-products">
+		Produkte
+	</a>
+</li>
+</ul>
+<ul class="ml-auto navbar-nav">
+<li class="shopping-cart cart-icon hidden">
+<a class="nav-link" href="/cart">
+<svg class="icon icon-lg">
+<use href="#icon-assets"></use>
+</svg>
+<span class="badge badge-primary shopping-badge" id="cart-count"></span>
+</a>
+</li>
+<!-- post login tools -->
+<li class="nav-item">
+<a class="nav-link btn-login-area" href="/login">Anmelden</a>
+</li>
+</ul>
+</div>
+<div class="form-group mb-0 hide" id="language-switcher">
+<select class="form-control"></select>
+</div>
+</div>
+</nav>
+
+
+
+
+
+
+
+
+<div id="page-business-card-black" data-path="business-card"source-type="Generator" data-doctype="Web Page"source-content-type="HTML">
+	
+<div class="page-content-wrapper">
+	<!-- breadcrumbs -->
+	<div class="page-breadcrumbs">
+		
+    
+    
+    
+
+	</div>
+
+	
+	<main class="">
+		<div class="d-flex justify-content-between align-items-center">
+			<div class="page-header">
+				
+			</div>
+
+			
+		</div>
+
+		<div class="page_content"><div class="webpage-content">
+	
+	<article class="web-page-content" id="business-card-black" style="text-align: Left">
+	<head>
+</head>
+
+<label id="switch-dark-mode">
+<p>Dark Mode:</p>
+  <input onclick="toggle_dark_mode()" type="checkbox">
+  <div id="slider"></div>
+</label>
+
+
+<label id="impressum">
+<a href="https://it-rosenstock.com/impressum">Impressum</a>
+</label>
+
+
+<div id="visitenkarte-center">
+
+<div id="visitenkarte-umriss">
+
+<div id="visitenkarte-inhalt">
+
+<div id="visitenkarte-front">
+
+<div id="logo">
+<img>
+<div>
+<p>Robin</p>
+<p>Rosenstock</p>
+</div>
+</div>  <!-- id=logo -->
+
+<div id="bez">
+<p>IT-Engineer</p>
+</div>
+
+<div id="contactinfos">
+<div class="line">
+<img src="/files/home.svg" alt="RO-Logo">
+<p>Nelkenweg 9, 73433 Aalen</p>
+</div>
+<div class="line">
+<img src="/files/fa-phone.svg" alt="RO-Logo">
+<p>+49 (0) 177 / 2264140</p>
+</div>
+<div class="line">
+<img src="/files/email.svg" alt="RO-Logo">
+<p>email@robinrosenstock.com</p>
+</div>
+<div class="line">
+<img src="/files/globe.svg" alt="RO-Logo">
+<p>robinrosenstock.com</p>
+</div>
+</div>  <!-- id=contactinfos -->
+
+<div id="foto">
+<img src="/files/bewerbungsfoto2.png" alt="RO-Logo">
+</div>  <!-- id=foto -->
+
+</div> <!-- visitenkarte-front -->
+
+
+<div id="visitenkarte-back">
+
+<div id="qr-code">
+<img>
+
+<p>Scan to get contact information</p>
+
+</div> <!-- id=qr-code -->
+
+</div> <!-- visitenkarte-back -->
+
+
+</div> <!-- visitenkarte-inhalt -->
+
+</div> <!-- visitenkarte-umriss -->
+
+</div> <!-- visitenkarte-center -->
+	</article>
+	
+</div></div>
+
+		<div class="page-footer"></div>
+	</main>
+	
+</div>
+
+</div>
+
+
+<footer class="web-footer">
+<div class="container">
+<div class="footer-logo-extension">
+<div class="row">
+<div class="text-left col-md-6"></div>
+<div class="text-right col-md-6">
+</div>
+</div>
+</div>
+<div class="footer-grouped-links">
+<div class="row">
+</div>
+</div>
+<div class="footer-links">
+<div class="row">
+<div class="footer-col-left col-sm-6">
+<a class="footer-link" href="/impressum" rel="noreferrer">Impressum</a>
+</div>
+<div class="footer-col-right col-sm-6"></div>
+</div>
+</div>
+<div class="footer-info">
+<div class="row">
+<div class="footer-col-left col-sm-6 col-12">
+			
+			© Robin Rosenstock
+			
+			
+			<br/>
+<div class="ql-editor read-mode"><p><br/></p></div>
+</div>
+<div class="footer-col-right col-sm-6 col-12 footer-powered">
+<a class="text-muted" href="https://erpnext.com/services?source=website_footer" target="_blank">Powered by ERPNext -  ERP Software for Service Companies</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+	<!-- js should be loaded in body! -->
+	<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/frappe-web.min.js?ver={{ build_version }}"></script>
+	<script type="text/javascript" src="/assets/js/bootstrap-4-web.min.js"></script>
+	<script>
+		frappe.boot = {
+			sysdefaults: {
+				float_precision: parseInt("3"),
+				date_format: "dd-mm-yyyy",
+			}
+		};
+		// for backward compatibility of some libs
+		frappe.sys_defaults = frappe.boot.sysdefaults;
+	</script>
+	
+	<script type="text/javascript" src="/website_script.js?ver={{ build_version }}"></script>
+	<script type="text/javascript" src="/assets/js/erpnext-web.min.js?ver={{ build_version }}"></script><script>function toggle_dark_mode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}</script>
+	<script>frappe.csrf_token = "None";</script></body>
+</html>
